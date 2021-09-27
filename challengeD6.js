@@ -174,13 +174,15 @@ console.log("Esercizio 8 ", rollTheDices(3))
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 */
-const howManyDays = function() {
-    let data = new Date(date)
-    let milli = Date.parse(data)
-    let dataActual = new Date();
-    let milliToday = Date.parse(dataActual)
-    let diff = milliToday - milli;
-    let dayAfter = Math.floor(diff / 86400000)
+const howManyDays = function(y, m, d) {
+    m -= 1 // months start from 0 in Date objectes
+    let date = new Date(y, m, d);
+    let milli = Date.parse(date); //convert in mlliseconds
+    let actualDate = new Date() //get actual date
+    let milliToday = Date.parse(actualDate); //convert in mlliseconds
+    let diff = milliToday - milli; //look for gap in millisecond
+    const value = (1000 * 60 * 60 * 24) //   day/milliseconds
+    let dayAfter = Math.floor(diff / value) //convert in integer
     return dayAfter
 }
 console.log(howManyDays(2021, 09, 20))
