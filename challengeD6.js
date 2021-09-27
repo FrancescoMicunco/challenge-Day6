@@ -189,14 +189,21 @@ console.log(howManyDays(2021, 09, 20))
     /* EXERCISE 10
        Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
     */
-const isTodayMyBirthday = function(date) {
-    if (date = (1967, 05, 31)) {
-        console.log("Oggi è il tuo compleanno!")
+const isTodayMyBirthday = function(y, m, d) {
+    m -= 1
+    let myBirthDay = new Date(y, m, d);
+    let milli = Date.parse(myBirthDay); //convert in mlliseconds
+    let actualDate = new Date() //get actual date
+    let milliToday = Date.parse(actualDate); //convert in mlliseconds
+    if (milli === milliToday) {
+        console.log("Cheers! Today is you Birthday!")
     }
 }
-isTodayMyBirthday(1967, 05, 31)
-    // JS Arrays & Objects
-    // NOTE: the movies array used in some exercises is defined at the end of this file
+isTodayMyBirthday(2021, 09, 27)
+
+
+// JS Arrays & Objects
+// NOTE: the movies array used in some exercises is defined at the end of this file
 
 /* EXERCISE 11
    Write a function called deleteProp which receives an object and a string as parameters,
