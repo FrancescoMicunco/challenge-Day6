@@ -129,9 +129,15 @@ console.log(isAString(stringa))
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 */
+const isThisAnEmail = function(str) {
+    let validMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    if (validMail.test(str)) {
+        console.log("Valid email adress")
+    } else { console.log("please check your mail adress") }
 
+}
 
-
+isThisAnEmail("francescomicuncogmail.com")
 
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
