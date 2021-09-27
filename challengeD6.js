@@ -114,17 +114,15 @@ let stringa = "7 Giorno 6"
 const isAString = function(str) {
     let arrayStr = str.split("")
     for (let i = 0; i < arrayStr.length; i++) {
-        if (isNaN(arrayStr[i]) || arrayStr[i] === " ") {
-            console.log("l'elemento n. ", arrayStr.indexOf(arrayStr[i]), " è una stringa")
+        if (isNaN(arrayStr[i]) || arrayStr[i] == " ") {
+            //console.log("l'elemento n. ", arrayStr.indexOf(arrayStr[i]), " è una stringa")
         } else {
-            console.log("l'elemento non è UNA STRINGA")
             arrayStr[i] = " "
-
         }
     }
     return arrayStr.join(" ")
 }
-console.log(isAString(stringa))
+console.log("la stringa modificata è ", isAString(stringa))
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
@@ -134,9 +132,7 @@ const isThisAnEmail = function(str) {
     if (validMail.test(str)) {
         console.log("Valid email adress")
     } else { console.log("please check your mail adress") }
-
 }
-
 isThisAnEmail("francescomicuncogmail.com")
 
 /* EXERCISE 7
@@ -163,6 +159,17 @@ console.log(whatDayIsIt())
         values: [3, 3, 4]
     }
 */
+
+const rollTheDices = function(num) {
+    let obj = { sum: 0, diceArray: [] }
+    for (let i = 0; i < num; i++) {
+        let element = dice();
+        obj.diceArray.push(element)
+        obj.sum += element
+    }
+    return console.log(obj)
+}
+console.log("Esercizio 8 ", rollTheDices(3))
 
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
