@@ -47,37 +47,105 @@ const removePropProp = function(obj) {
 
 removePropProp(me);
 console.log(me);
+
+
 // JS Functions
+
+
 /* EXERCISE 1
     Write a function called dice; it should randomize an integer number between 1 and 6.
 */
+const dice = function() {
+    return Math.floor(Math.random() * 6 + 1)
+}
+
+console.log(dice())
 
 /* EXERCISE 2
     Write a function called whoIsBigger which receives 2 numbers as parameters and returns the biggest one.
 */
 
+const whoIsBigger = function(num1, num2) {
+    let max = 0;
+    if (num1 < num2) {
+        max = num2;
+    } else { max = num1 }
+    return max;
+}
+let maxim = whoIsBigger(12, 9)
+console.log("Il maggiore è: ", maxim)
+
 /* EXERCISE 3
     Write a function called splitMe which receives a string as a parameter and returns an array with every word in that string.
     Ex.: splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
+let string = "Era la giornata giusta";
+const splitMe = function(str) {
+    let newArr = str.split(" ")
+    return newArr;
+}
+console.log(splitMe(string));
+
 
 /* EXERCISE 4
     Write a function called deleteOne which receives a string and a boolean as parameters.
     If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
 
+
+const deleteOne = function(str, bool) {
+
+    if (bool) {
+        str = str.substring(1)
+    } else {
+        str = str.substring(0, str.length - 1)
+    }
+    return str
+}
+console.log(deleteOne("Mattia", false))
+
 /* EXERCISE 5
    Write a function called onlyLetters which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs") => returns "I have  dogs"
 */
+//first step = I have to iterate the string finding the number
+//second step = I have to delete this specific number 
+let stringa = "7 Giorno 6"
+const isAString = function(str) {
+    let arrayStr = str.split("")
+    for (let i = 0; i < arrayStr.length; i++) {
+        if (isNaN(arrayStr[i]) || arrayStr[i] === " ") {
+            console.log("l'elemento n. ", arrayStr.indexOf(arrayStr[i]), " è una stringa")
+        } else {
+            console.log("l'elemento non è UNA STRINGA")
+            arrayStr[i] = " "
+
+        }
+    }
+    return arrayStr.join(" ")
+}
+console.log(isAString(stringa))
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 */
 
+
+
+
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
 */
+const whatDayIsIt = function() {
+    const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        // ---------- get an object with current date ----------------
+    let currentDate = new Date();
+    // ---------------- get actual day from object
+    let dayNumber = currentDate.getDay();
+    let currentDay = dayOfWeek[dayNumber]
+    return currentDay
+}
+console.log(whatDayIsIt())
 
 /* EXERCISE 8
     Write a function called rollTheDices which receives a number as a parameter.
@@ -93,13 +161,27 @@ console.log(me);
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 */
-
-/* EXERCISE 10
-   Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
-*/
-
-// JS Arrays & Objects
-// NOTE: the movies array used in some exercises is defined at the end of this file
+const howManyDays = function() {
+    let data = new Date(date)
+    let milli = Date.parse(data)
+    let dataActual = new Date();
+    let milliToday = Date.parse(dataActual)
+    let diff = milliToday - milli;
+    let dayAfter = Math.floor(diff / 86400000)
+    return dayAfter
+}
+console.log(howManyDays(2021, 09, 20))
+    /* EXERCISE 10
+       Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
+    */
+const isTodayMyBirthday = function(date) {
+    if (date = (1967, 05, 31)) {
+        console.log("Oggi è il tuo compleanno!")
+    }
+}
+isTodayMyBirthday(1967, 05, 31)
+    // JS Arrays & Objects
+    // NOTE: the movies array used in some exercises is defined at the end of this file
 
 /* EXERCISE 11
    Write a function called deleteProp which receives an object and a string as parameters,
