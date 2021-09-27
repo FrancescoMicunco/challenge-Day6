@@ -210,9 +210,31 @@ isTodayMyBirthday(2021, 09, 27)
    and returns the given object after deleting its property named as the given string.
 */
 
-/* EXERCISE 12
-    Write a function called oldestMovie which finds the oldest movie in the provided movies array.
-*/
+
+const deleteProp = function(obj, value) {
+    delete obj.str
+    return
+}
+let stringa = "name"
+let object = {
+    name: "Stephan",
+    surname: "Oliver",
+    dateOfBirth: "31-09-1990"
+}
+deleteProp(object, stringa)
+    /* EXERCISE 12
+        Write a function called oldestMovie which finds the oldest movie in the provided movies array.
+    */
+
+const oldestMovie = function() {
+    let oldestMovie = movies[0]
+    for (let i = 0; i < movies.length; i++) {
+        if (movies[i].Year > oldestMovie.Year) {
+            oldestMovie === movies[i].Year
+        }
+    }
+    return
+}
 
 /* EXERCISE 13
     Write a function called countMovies which returns the number of movies contained in the provided movies array.
